@@ -24,7 +24,7 @@ class HfiA9_Driver : public rclcpp::Node
         m_poll_timer = this->create_wall_timer(2ms, std::bind(&HfiA9_Driver::poll_callback, this));
 		m_publish_timer = this->create_wall_timer(20ms, std::bind(&HfiA9_Driver::publish_callback, this));
 
-        m_sc = std::make_unique<robot::io::SerialConnector>("/dev/imu", 921600);
+        m_sc = std::make_unique<robot::io::SerialConnector>("/dev/ttyUSB2", 921600);
         m_sc->Open();
     }
 
